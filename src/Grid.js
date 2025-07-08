@@ -31,20 +31,25 @@ export default class Grid {
                 context.rect(x * this.cellSize.x, y * this.cellSize.x, this.cellSize.x, this.cellSize.x)
                 context.stroke()
                 context.closePath()
+                
                 if(cell.dotColor) {
                     this.renderDot(x, y, cell.dotColor)
                 }
+
+                //for debug
+                const [centerX, centerY] = this.getCenterCellPosition(x, y)
+                context.strokeText(`(${x}, ${y})`, centerX, centerY)
             }
         }
      
     }
 
     renderDot(x, y, color) {
-        const position = this.getCenterCellPosition(x, y)
+        const [centerX, centerY] = this.getCenterCellPosition(x, y)
         context.beginPath()
         context.strokeStyle = color
         context.fillStyle = color
-        context.arc(position.x, position.y, DOT_RADIUS, 0, Math.PI * 2)
+        context.arc(centerX, centerY, DOT_RADIUS, 0, Math.PI * 2)
         context.fill()
         context.stroke()
         context.closePath()
@@ -54,6 +59,7 @@ export default class Grid {
 
 
     getCenterCellPosition(x, y) {
-        return new Vector2D(x * this.cellSize.x + (this.cellSize.x / 2) , y * this.cellSize.y + (this.cellSize.y / 2) )
+        return [x * this.cellSize.x + (this.cellSize.x / 2) , y * this.cellSize.y + (this.cellSize.y / 2) ]
     }
+
 }
