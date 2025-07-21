@@ -1,1 +1,1 @@
-Play Game: [https://juupiero.github.io/Flow-Free-Protoype/](https://juupiero.github.io/Flow-Free-Protoype/)
+Play Game: [https://juupiero.github.io/Flow-Free-Prototype/](https://juupiero.github.io/Flow-Free-Prototype/)
